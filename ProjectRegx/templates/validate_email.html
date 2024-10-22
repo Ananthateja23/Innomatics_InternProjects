@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Link to Custom Stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+{% endblock head %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <!-- Create a flex container for form and validation result -->
+    <div class="row w-100">
+        <!-- Form Section -->
+        <div class="col-md-6 form-section {% if is_valid is not none %}with-border{% endif %}">
+            <h2>{{ title }}</h2>
+            <form method="POST" action="/validate_email">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email Id">
+                </div>
+                <button type="submit" class="btn btn-primary">Validate</button>
+            </form>
+            <!-- Navigation Links at the bottom of the form -->
+            <div class="nav-links mt-4">
+                <a href="/" class="nav-link">Back to Home</a>
+                <a href="/validate_email" class="nav-link">Validate Email Again..?</a>
+            </div>
+        </div>
+
+        <!-- Validation Result Section -->
+        <div class="col-md-6">
+            {% if is_valid is not none%}
+            <h2>Validation Result</h2>
+            <div class="result-section">
+                <!-- <h4>Validation Result:{{is_valid}}</h4> -->
+                {% if is_valid %}
+                <p class="valid">{{ email }} is a valid email address.</p>
+                {% else %}
+                <p class="invalid">{{ email }} Not a valid email address.</p>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

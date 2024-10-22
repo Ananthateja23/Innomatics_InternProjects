@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Link to Custom Stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+{% endblock head %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <!-- Create a flex container to hold form and matches side by side -->
+    <div class="row w-100">
+        <!-- Form Section -->
+        <div class="col-md-6">
+            <h2>{{ title }}</h2>
+            <form method="POST" action="/results">
+                <div class="mb-3">
+                    <label for="regexPattern" class="form-label">Regex Pattern</label>
+                    <input type="text" class="form-control" id="regexPattern" name="regexPattern" placeholder="Enter the regex pattern">
+                </div>
+                <div class="mb-3">
+                    <label for="testString" class="form-label">Test String</label>
+                    <textarea class="form-control" id="testString" name="testString" placeholder="Enter the test string" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <!-- Navigation Links at the bottom of the form -->
+            <div class="nav-links mt-4">
+                <a href="/" class="nav-link">Check Regex Pattern Again..?</a>
+                <a href="/validate_email" class="nav-link">Validate Email</a>
+            </div>
+        </div>
+
+        <!-- Matched Strings Section -->
+        <div class="col-md-6">
+            {% if matches %}
+            <h2>Matched Strings</h2>
+            <div class="matches-section">
+                <ul>
+                    {% for match in matches %}
+                    <li>{{ match }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

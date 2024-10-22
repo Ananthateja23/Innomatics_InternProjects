@@ -1,0 +1,117 @@
+body {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the container */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style for the form section */
+.col-md-6 {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Styling for matched strings section */
+.matches-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Style for navigation links */
+.nav-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0072ff;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #0072ff;
+    color: white;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #0072ff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+<!-- {% extends "base.html" %}
+
+{% block head %}
+Link to Custom Stylesheet
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+{% endblock head %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+    Create a flex container for form and validation result
+    <div class="row w-100">
+        Form Section
+        <div class="col-md-6">
+            <h2>{{ title }}</h2>
+            <form method="POST" action="/validate_email">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                </div>
+                <button type="submit" class="btn btn-primary">Validate</button>
+            </form>
+        </div>
+
+        Validation Result Section
+        <div class="col-md-6">
+            {% if is_valid is not none %}
+            <div class="result-section">
+                <h4>Validation Result:</h4>
+                {% if is_valid %}
+                <p class="valid">{{ email }} is a valid email address.</p>
+                {% else %}
+                <p class="invalid">{{ email }} is not a valid email address.</p>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %} -->
